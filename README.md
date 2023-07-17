@@ -1,16 +1,14 @@
 # wcc_ludo_S3_2023
-Demo : https://wcc-beta-ludo-s3-2023.netlify.app/
 
+Lien demo netlify: [https://wcc-ludo-s3-2023.netlify.app/]
 
-made using only :
+## Made using:
+- HTML
+- CSS
+- JavaScript
 
-  Html,
-  css,
-  Vanilla JS
+## Team members:
+- rajostelly
+- Antsa03
 
-
-team members :
-
-  rajostelly
-  Antsa03
 
