@@ -86,16 +86,17 @@ export class UI {
     }
 
     static setDiceValue(value) {
-        document.querySelector('.dice-value').innerText = value;
+        const diceValueElement = document.querySelector('.dice-value');
+        diceValueElement.innerHTML = '';
+
+        const imageElement = document.createElement('img');
+        imageElement.src = `../../img/dice/dice-${value}.png`;
+        imageElement.alt = "";
+        imageElement.width = 50;
+        imageElement.height = 50;
+        imageElement.classList.add('rotate');
+
+        diceValueElement.appendChild(imageElement);
     }
 }
 
-// UI.setPiecePosition('P1', 0, 0);
-// UI.setTurn(0);
-// UI.setTurn(1);
-
-// UI.disableDice();
-// UI.enableDice();
-// UI.highlightPieces('P1', [0]);
-// UI.unhighlightPieces();
-// UI.setDiceValue(5);

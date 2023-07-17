@@ -1,3 +1,9 @@
+:root {
+    --bg-primary-color:  #051326;
+    --bg-secondary-color: #041E40; 
+    --color-text: white;  
+}
+
 * {
     box-sizing: border-box;
 }
@@ -5,19 +11,20 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #FAF3F0;
+    background-color:  #051326;
+    color: white;
 }
   
 nav {
     width: 80%;
     height: 100px;
-    border: 1px solid #7C9D96;
+    border: 1px solid #041E40;
     margin: 0 auto;
-    background-color: #7C9D96;
+    background-color: #041E40;
     display: flex;
     border-radius: 5px;
-  }
-  
+}
+   
 .home-link {
   width: 5%;
   height: 100%;
@@ -34,6 +41,7 @@ nav h2 {
     margin: auto auto;
     z-index: 1;
     color: #fff;
+    transform: translateX(-40px);
 }
 
 .ludo-container {
@@ -48,32 +56,40 @@ nav h2 {
     background-size: contain;
     position: relative;
 }
+.progress{
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
 
+}
+
+.progress-bar-container input{
+    font-size: 16px !important;
+    width: 74px;
+    height: 10px;
+    
+}
 .player-pieces {
     height: 100%;
     width: 100%;
 }
 
 .player-piece {
-    width: 3%;
-    height: 3%;
+    width: 3.5%;
+    height: 3.5%;
     border: 2px solid;
     border-radius: 50px;
     position: absolute;
-    transform: translate(50%, 50%);
+    transform: translate(50%, 50%) translateX(-1.5px) translateY(-1.5px);    
     transition: all .2s;
-
     z-index: 1;
-
-
-    /* top: 15%;
-    left: 50%; */
 }
 
 .player-piece.highlight {
     cursor: pointer;
     border: 2px dashed;
     animation: spin  1s infinite linear;
+    z-index: 2;
 }
 
 @keyframes spin {
@@ -156,18 +172,140 @@ nav h2 {
     opacity: 0.5;
 }
 
-.btn-dice {
-    background-color: #009d60;
+.btn {
+    width: 220px;
+    height: 50px;
+    border: 2px solid #79AEF2;
+    outline: none;
     color: white;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    background-color: var(--bg-secondary-color);
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.btn:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff,var(--bg-secondary-color), #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.btn:hover:before {
+    opacity: 1;
+}
+.btn:hover{
+    color: #000;
+}
+.btn:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.btn-reset {
+    width: 220px;
+    height: 50px;
+    border: 2px solid red;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    background-color: var(--bg-secondary-color);
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.btn-reset:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff,var(--bg-secondary-color), #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.btn-reset:hover:before {
+    opacity: 1;
+}
+.btn-reset:hover{
+    color: #000;
+}
+.btn-reset:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
 }
 
 .row {
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
+    gap: 40px;
 }
 
 .dice-value {
     font-size: 24px;
     font-weight: bold;
+}
+.active-player{
+    text-align: center;
+}
+
+.dice-value img{
+    transition: transform 0.5s ease;
+
+}
+
+.dice-value img.rotate{
+    transform-style: preserve-3d;
+    animation: dice-rotation 0.4s 0s linear;
+}
+@keyframes dice-rotation{
+    0%{transform: rotateZ(0);}
+    100%{transform: rotateZ(360deg);}
 }

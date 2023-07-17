@@ -63,8 +63,11 @@ export class Ludo {
     }
 
     onDiceClick() {
-        console.log('dice clicked!')
-        this.diceValue = 1 + Math.floor(Math.random() * 6);
+        console.log('dice clicked!');
+        const randomBytes = new Uint8Array(1);
+        window.crypto.getRandomValues(randomBytes);
+        const randomNumber = randomBytes[0] % 6 + 1;
+        this.diceValue = randomNumber;
         this.state = STATE.DICE_ROLLED;
 
         this.checkForEligiblePieces();
@@ -153,8 +156,12 @@ export class Ludo {
         const currentPosition = this.currentPositions[player][piece];
 
         if(BASE_POSITIONS[player].includes(currentPosition)) {
-            this.setPiecePosition(player, piece, START_POSITIONS[player]);
-            this.state = STATE.DICE_NOT_ROLLED;
+            if(this.diceValue === 6) {
+                this.setPiecePosition(player, piece, START_POSITIONS[player]);
+                this.state = STATE.DICE_NOT_ROLLED;
+            } else {
+                console.log("Vous devez obtenir un 6 pour sortir la pièce !");
+            }
             return;
         }
 

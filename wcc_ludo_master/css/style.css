@@ -1,3 +1,7 @@
+:root {
+  --point-color:  #A6A6A6;
+  --size: 5px;
+}
 * {
     box-sizing: 0;
   }
@@ -5,15 +9,16 @@
   body {
     margin: 0;
     padding: 0;
-    background-color: #FAF3F0;
+    background-color: #051326;
+    color: #A6A6A6;
   }
   
   nav {
     width: 80%;
     height: 100px;
-    border: 1px solid #7C9D96;
+    border: 1px solid #041E40;
     margin: 0 auto;
-    background-color: #7C9D96;
+    background-color: #041E40;
     display: flex;
     border-radius: 5px;
   }
@@ -34,6 +39,7 @@ nav h2 {
     margin: auto auto;
     z-index: 1;
     color: #fff;
+    transform: translateX(-40px);
 }
   
   main h1{
@@ -48,22 +54,8 @@ nav h2 {
     text-align: center;
   }
   
-  .choix {
-    display: flex;
-    justify-content: center; /* Centre horizontalement */
-    align-items: center;
-    width: 30%;
-    height: 80px;
-    border: 1px solid #E9B384;
-    border-radius: 5px;
-    margin: 0 auto;
-    background-color: #E9B384;
-  }
   
-  .choix2{
-    margin-top: 1%;
-    margin-bottom: 1%;
-  }
+  
   
   .lien {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -72,3 +64,62 @@ nav h2 {
     color: #fff;
     text-decoration: none;
   }
+  .choix {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center;
+    width: 30%;
+    height: 80px;
+    border: 1px solid #79AEF2;
+    border-radius: 5px;
+    margin: 0 auto;
+    background-color: transparent;
+  }
+  .choix:hover{
+    background-color: #79AEF2;
+    color: red !important;
+    cursor:pointer;
+
+  }
+  
+  .choix2{
+    margin-top: 1%;
+    margin-bottom: 2%;
+  }
+
+  /* ----------------------------- */
+ 
+  
+  .loader {
+    margin-top: 10px;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    align-content: center; 
+    justify-content: center;  
+    z-index: 10;
+  }
+  
+  .loader__element {
+    border-radius: 100%;
+    border: var(--size) solid var(--point-color);
+    margin: calc(var(--size)*2);
+  }
+  
+  .loader__element:nth-child(1) {
+    animation: preloader .6s ease-in-out alternate infinite;
+  }
+  .loader__element:nth-child(2) {
+    animation: preloader .6s ease-in-out alternate .2s infinite;
+  }
+  
+  .loader__element:nth-child(3) {
+    animation: preloader .6s ease-in-out alternate .4s infinite;
+  }
+  
+  @keyframes preloader {
+    100% { transform: scale(2); }
+  }
+  

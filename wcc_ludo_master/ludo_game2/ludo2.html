@@ -14,25 +14,42 @@
         <h2>AR CODING MASTER</h2>
     </nav>
     <div class="ludo-container">
-        <div class="ludo">
-            <div class="player-pieces">
-                <div class="player-piece" player-id="P1" piece="0"></div>
-                <div class="player-piece" player-id="P1" piece="1"></div>
-                <div class="player-piece" player-id="P1" piece="2"></div>
-                <div class="player-piece" player-id="P1" piece="3"></div>
 
-                <div class="player-piece" player-id="P2" piece="0"></div>
-                <div class="player-piece" player-id="P2" piece="1"></div>
-                <div class="player-piece" player-id="P2" piece="2"></div>
-                <div class="player-piece" player-id="P2" piece="3"></div>
-            </div>
-            
-            <div class="player-bases">
-                <div class="player-base" player-id="P1"></div>
-                <div class="player-base" player-id="P2"></div>
-            </div>
-
-        </div>
+        <div class="ludomain">
+            <div class="ludo">
+                <div class="player-pieces">
+                    <div class="player-piece" player-id="P1" piece="0"></div>
+                    <div class="player-piece" player-id="P1" piece="1"></div>
+                    <div class="player-piece" player-id="P1" piece="2"></div>
+                    <div class="player-piece" player-id="P1" piece="3"></div>
+    
+                    <div class="player-piece" player-id="P2" piece="0"></div>
+                    <div class="player-piece" player-id="P2" piece="1"></div>
+                    <div class="player-piece" player-id="P2" piece="2"></div>
+                    <div class="player-piece" player-id="P2" piece="3"></div>
+                </div>                
+                <div class="player-bases">
+                    <div class="player-base" player-id="P1"></div>
+                    <div class="player-base" player-id="P2"></div>
+                </div>    
+            </div>    
+            <div class="progress">
+                <div class="progress-bar-container">
+                <label for="rotateXProgress">Rotate X:</label>
+                <input type="range" id="rotateXProgress" min="0" max="360" step="1" value="0">
+                </div>
+                
+                <div class="progress-bar-container">
+                <label for="rotateYProgress">Rotate Y:</label>
+                <input type="range" id="rotateYProgress" min="0" max="360" step="1" value="0">
+                </div>
+    
+                <div class="progress-bar-container">
+                <label for="rotateZProgress">Rotate Z:</label>
+                <input type="range" id="rotateZProgress" min="0" max="360" step="1" value="0">
+                </div>
+            </div>            
+        </div>      
         <div class="footer">
             <div class="row">
                 <button id="dice-btn" class="btn btn-dice">Roll</button>
@@ -41,6 +58,7 @@
             </div>
             <h2 class="active-player">Active Player: <span></span></h2>
         </div>
+
     </div>
 
     <script src="./main.js" type="module"></script>
