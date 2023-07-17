@@ -4,13 +4,13 @@ Demo : https://wcc-beta-ludo-s3-2023.netlify.app/
 
 made using only :
 
-Html
-css
-Vanilla JS
+  Html,
+  css,
+  Vanilla JS
 
 
 team members :
 
-rajostelly
-Antsa03
+  rajostelly
+  Antsa03
 
